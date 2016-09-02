@@ -1,0 +1,95 @@
+	
+			html, body {
+			
+			margin: 0;
+			font-family: sans-serif;
+			font-size: 9pt;
+			
+		}
+
+		th, td {
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.ol-popup {
+			display: none;
+			position: fixed ;
+			z-index:10;
+			background-color: white;
+			padding: 20px 15px 15px 15px;
+			border: 1px solid #cccccc;
+			bottom: 12px;
+			left: 0px;
+			top: 50px; 
+			height: 618px;
+			width: 430px;
+			overflow : auto;
+			
+			
+		}
+
+		.ol-popup:after, .ol-popup:before {
+			top: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: fixed;
+				
+		}
+
+		.ol-popup:after {
+			border-top-color: white;
+			border-width: 10px;
+			left: 48px;
+			margin-left: -10px;
+		}
+
+		.ol-popup:before {
+			border-top-color: #cccccc;
+			border-width: 11px;
+			left: 48px;
+			margin-left: -11px;
+		}
+
+		.ol-popup-content {
+			min-width: 70px;
+			max-height: 200px;
+			overflow-x: auto;
+			
+		}
+
+		.ol-popup-closer {
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			font-size: 150%;
+			padding: 0 4px;
+			color: gray;
+			text-decoration: none;
+			
+		}
+
+		.ol-popup-closer:after {
+			content: "\2716";
+		}
+
+		.ol-popup div.infoResult {
+			min-width: 130px;
+		}
+
+		.ol-popup div.infoResult p {
+			padding: 0.1em;
+			margin: 0;
+		}
+
+		.ol-popup-content h3 {
+			margin: 0.25em 0;
+		}
+
+		.ol-popup.marker {
+			margin-bottom: 30px;
+		}
+
+		

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://www.w3schools.com/html/tryit.asp?filename=tryhtml_default -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Advanced View Positioning</title>
+    <link rel="stylesheet" href="./ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="./polyfill.min.js"></script>
+    <script src="./ol.js"></script>
+    <style>
+      
+      .map {
+        width: 1000px;
+        height: 600px;
+      }
+      
+      div.ol-attribution {
+        bottom: 30px;
+        right: 50px;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div class="mapcontainer">
+      <div id="map" class="map"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="1000" height="600" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">&#8722;</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">&#8679;</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-uncollapsible"><ul><li style=""><a href="http://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
+      <div class="padding-top"></div>
+      <div class="padding-left"></div>
+      <div class="padding-right"></div>
+      <div class="padding-bottom"></div>
+      <div class="center"></div>
+    </div>
+    <button id="zoomtoswitzerlandbest">Zoom to Switzerland</button> (best fit),<br>
+    <button id="zoomtoswitzerlandconstrained">Zoom to Switzerland</button> (respect resolution constraint).<br>
+    <button id="zoomtoswitzerlandnearest">Zoom to Switzerland</button> (nearest),<br>
+    <button id="zoomtolausanne">Zoom to Lausanne</button> (with min resolution),<br>
+    <button id="centerlausanne">Center on Lausanne</button>
+    <script>
+      var source = new ol.source.Vector({
+        url: 'http://openlayers.org/en/v3.18.2/examples/data/geojson/switzerland.geojson',
+        format: new ol.format.GeoJSON()
+      });
+      var style = new ol.style.Style({
+        fill: new ol.style.Fill({
+          color: 'rgba(255, 255, 255, 0.6)'
+        }),
+        stroke: new ol.style.Stroke({
+          color: '#319FD3',
+          width: 1
+        }),
+        image: new ol.style.Circle({
+          radius: 5,
+          fill: new ol.style.Fill({
+            color: 'rgba(255, 255, 255, 0.6)'
+          }),
+          stroke: new ol.style.Stroke({
+            color: '#319FD3',
+            width: 1
+          })
+        })
+      });
+      var vectorLayer = new ol.layer.Vector({
+        source: source,
+        style: style
+      });
+      var view = new ol.View({
+        center: [0, 0],
+        zoom: 1
+      });
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          vectorLayer
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+          attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+            collapsible: false
+          })
+        }),
+        view: view
+      });
+
+      var zoomtoswitzerlandbest = document.getElementById('zoomtoswitzerlandbest');
+      zoomtoswitzerlandbest.addEventListener('click', function() {
+        var feature = source.getFeatures()[0];
+        var polygon = /** @type {ol.geom.SimpleGeometry} */ (feature.getGeometry());
+        var size = /** @type {ol.Size} */ (map.getSize());
+        view.fit(polygon, size, {padding: [170, 50, 30, 150], constrainResolution: false});
+      }, false);
+
+      var zoomtoswitzerlandconstrained =
+          document.getElementById('zoomtoswitzerlandconstrained');
+      zoomtoswitzerlandconstrained.addEventListener('click', function() {
+        var feature = source.getFeatures()[0];
+        var polygon = /** @type {ol.geom.SimpleGeometry} */ (feature.getGeometry());
+        var size = /** @type {ol.Size} */ (map.getSize());
+        view.fit(polygon, size, {padding: [170, 50, 30, 150]});
+      }, false);
+
+      var zoomtoswitzerlandnearest =
+          document.getElementById('zoomtoswitzerlandnearest');
+      zoomtoswitzerlandnearest.addEventListener('click', function() {
+        var feature = source.getFeatures()[0];
+        var polygon = /** @type {ol.geom.SimpleGeometry} */ (feature.getGeometry());
+        var size = /** @type {ol.Size} */ (map.getSize());
+        view.fit(polygon, size, {padding: [170, 50, 30, 150], nearest: true});
+      }, false);
+
+      var zoomtolausanne = document.getElementById('zoomtolausanne');
+      zoomtolausanne.addEventListener('click', function() {
+        var feature = source.getFeatures()[1];
+        var point = /** @type {ol.geom.SimpleGeometry} */ (feature.getGeometry());
+        var size = /** @type {ol.Size} */ (map.getSize());
+        view.fit(point, size, {padding: [170, 50, 30, 150], minResolution: 50});
+      }, false);
+
+      var centerlausanne = document.getElementById('centerlausanne');
+      centerlausanne.addEventListener('click', function() {
+        var feature = source.getFeatures()[1];
+        var point = /** @type {ol.geom.Point} */ (feature.getGeometry());
+        var size = /** @type {ol.Size} */ (map.getSize());
+        view.centerOn(point.getCoordinates(), size, [570, 500]);
+      }, false);
+    </script>
+  
+</body></html>
